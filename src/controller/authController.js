@@ -40,20 +40,22 @@ router.post('/register', async(req, res)=>{
 router.post('/authenticated', async(req, res)=>{
 
     const{email, password} = req.body;
+    console.log(req.body)
     
     const user = await User.findOne({email}).select('+password')
     let usuario = user
-    const cpf = await User.findOne({'cpf':email}).select('+password')
-
+    const cpf_login = await User.findOne({'cpf':email}).select('+password')
+    console.log(cpf_login)
     if(!user){
-        if(!cpf){
+        if(!cpf_login){
             return res.status(400).send({error:'Usuário não encontrado'})
         }
-        usuario = cpf
+        usuario = cpf_login
        
     }
 
     if(usuario.nivel == 0){
+        
         return res.status(400).send({error:'Usuário Desativado '})
     }
 
@@ -64,7 +66,7 @@ router.post('/authenticated', async(req, res)=>{
     usuario.password = undefined
 
     res.send({usuario,     
-        token: geradorToken({id: user.id})
+        token: geradorToken({id: usuario.id})
     })
 
 })
