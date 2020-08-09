@@ -26,12 +26,6 @@ $ npm install
 $ nodemon /src/index.js 
 ```
 
-## Testes
-
-- Utilizando o insomnia, faça testes de requisição get, put, e post.
-
-
-
 ## Autores
 
 * **Vinicius Leal**
