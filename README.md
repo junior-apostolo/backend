@@ -26,6 +26,24 @@ $ npm install
 $ nodemon /src/index.js 
 ```
 
+
+##Exemplos de testes
+
+### Rotas
+
+ - http://localhost:3000/users/todos ("Buscando todos os usuarios":
+ o USUARIO DEVE POSSUIR O TOKEN 9999, PARA PODER ACESSAR ESSA ROTA. Essa rota exibe todos os usuarios registrados)[GET]
+ 
+ - http://localhost:3000/auth/authenticated (Utilizada para se autenticação no sistema)[POST]
+ 
+ - http://localhost:3000//auth/register (Utilizada para criar um novo usuário no sistema)[POST]
+ 
+ - http://localhost:3000/users/:id (Utilizada para atualização de usuário) [PUT]
+ 
+ 
+
+
+
 ## Autores
 
 * **Vinicius Leal**
