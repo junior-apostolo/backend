@@ -1,4 +1,4 @@
-const mongoose = require('../database');
+const mongoose = require('../database')
 const bcrypt = require('bcryptjs')
 
 
@@ -12,13 +12,11 @@ const UserSchema  = new mongoose.Schema({
         unique:true,
         required: true,
         lowercase:true,
-
     },
     cpf:{
         type: String,
         unique:true,
         required: true,
-
     },
     nivel:{
         type: Number
@@ -27,6 +25,9 @@ const UserSchema  = new mongoose.Schema({
         type: String,
         required: true,
         select: false
+    },
+    url:{
+        type: String,
     },
     createdAt:{
         type: Date,
@@ -37,10 +38,9 @@ const UserSchema  = new mongoose.Schema({
 UserSchema.pre('save', async function(next){
     const hash = await bcrypt.hash(this.password, 10);
     this.password =hash;
-
     next()
 }
 )
 
-const User = mongoose.model('User', UserSchema);
-module.exports = User;
+const User = mongoose.model('User', UserSchema)
+module.exports = User
